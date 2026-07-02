@@ -45,7 +45,7 @@ const sections = [
 ];
 
 function CourseDetail() {
-  const course = Route.useLoaderData();
+  const course = Route.useLoaderData() as Course;
   const [active, setActive] = useState("overview");
 
   useEffect(() => {

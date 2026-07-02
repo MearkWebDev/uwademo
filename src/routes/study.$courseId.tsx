@@ -1,12 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, CheckCircle2, MapPin, Clock, GraduationCap, Briefcase, ChevronDown, Sparkles } from "lucide-react";
-import { getCourse, structureNote } from "@/data/courses";
+import { getCourse, structureNote, type Course } from "@/data/courses";
 import courseCsImg from "@/assets/course-cs.jpg";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/study/$courseId")({
-  loader: ({ params }) => {
+  loader: ({ params }): Course => {
     const course = getCourse(params.courseId);
     if (!course) throw notFound();
     return course;

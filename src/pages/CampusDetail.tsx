@@ -42,6 +42,10 @@ const campuses: Record<string, CampusData> = {
 function CampusDetail() {
   const { campus } = useParams<{ campus: string }>();
   const c = campus ? campuses[campus] : undefined;
+  usePageMeta({
+    title: c ? `${c.headline} — UWA India` : "Campus — UWA India",
+    description: c?.tag,
+  });
   if (!c) return <NotFoundCampus />;
   return (
     <>

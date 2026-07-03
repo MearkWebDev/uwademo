@@ -26,9 +26,11 @@ const sections = [
 function CourseDetail() {
   const { courseId } = useParams<{ courseId: string }>();
   const course = courseId ? getCourse(courseId) : undefined;
-  if (!course) return <NotFoundCourse />;
-  const meta = getMeta(course.slug);
   const [active, setActive] = useState("overview");
+  usePageMeta({
+    title: course ? `${course.name} — UWA India` : "Course — UWA India",
+    description: course?.tagline ?? "UWA India course details.",
+  });
 
   useEffect(() => {
     const io = new IntersectionObserver(

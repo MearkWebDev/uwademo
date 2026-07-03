@@ -49,6 +49,9 @@ function CourseDetail() {
     return () => io.disconnect();
   }, []);
 
+  if (!course) return <NotFoundCourse />;
+  const meta = getMeta(course.slug);
+
   return (
     <>
       {/* HERO */}

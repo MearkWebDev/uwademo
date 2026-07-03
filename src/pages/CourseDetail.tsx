@@ -10,6 +10,7 @@ import { getCourse, structureNote, type Course } from "@/data/courses";
 import { getMeta } from "@/data/course-meta";
 import courseCsImg from "@/assets/course-cs.jpg";
 import { cn } from "@/lib/utils";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const sections = [
   { id: "overview", label: "Overview", icon: BookOpen },

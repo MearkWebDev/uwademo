@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowUpRight, Calendar, MapPin, Plane, Train } from "lucide-react";
 import mumbaiImg from "@/assets/mumbai-campus.jpg";
 import chennaiImg from "@/assets/chennai-campus.jpg";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 interface CampusData {
   slug: "mumbai" | "chennai";

@@ -90,7 +90,7 @@ function StudyExplorer() {
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <FilterPills label="Campus" value={campus} onChange={setCampus} options={campusOptions} />
-            <FilterPills label="Discipline" value={cat} onChange={setCat} options={categories as unknown as string[]} />
+            <FilterPills label="Discipline" value={cat} onChange={setCat} options={categories} />
             {activeFilters > 0 && (
               <button onClick={resetAll} className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-primary">
                 <X className="size-3" /> Clear ({activeFilters})

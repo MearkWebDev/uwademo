@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   Menu, X, ChevronDown, ArrowUpRight, Search, User,
@@ -77,7 +77,6 @@ export function SiteHeader() {
                   solid ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10",
                   mega && mega === n.mega && "bg-secondary text-foreground",
                 )}
-                activeProps={{ className: "text-gold" }}
               >
                 {n.label}
                 {n.mega && (
@@ -206,9 +205,7 @@ function StudyMega() {
           <ul className="space-y-2.5">
             {ug.map((c) => (
               <li key={c.slug}>
-                <Link
-                  to="/study/$courseId"
-                  params={{ courseId: c.slug }}
+                <Link to={`/study/${c.slug}`}
                   className="group flex items-baseline justify-between border-b border-dashed border-border/70 pb-2 text-sm hover:text-primary"
                 >
                   <span>{c.name}</span>
@@ -223,9 +220,7 @@ function StudyMega() {
           <ul className="space-y-2.5">
             {pg.map((c) => (
               <li key={c.slug}>
-                <Link
-                  to="/study/$courseId"
-                  params={{ courseId: c.slug }}
+                <Link to={`/study/${c.slug}`}
                   className="group flex items-baseline justify-between border-b border-dashed border-border/70 pb-2 text-sm hover:text-primary"
                 >
                   <span>{c.name}</span>
@@ -258,8 +253,7 @@ function CampusMega() {
       {items.map((c) => (
         <Link
           key={c.city}
-          to={"/campuses/$campus" as string}
-          params={{ campus: c.to }}
+          to={`/campuses/${c.to}`}
           className="group relative overflow-hidden rounded-3xl"
         >
           <div className="relative h-80 w-full overflow-hidden">

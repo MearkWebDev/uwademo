@@ -1,20 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Briefcase } from "lucide-react";
 import { openRoles } from "@/data/site";
 
-export const Route = createFileRoute("/careers")({
-  head: () => ({
-    meta: [
-      { title: "Work with UWA India — Careers at a Top 100 university" },
-      { name: "description", content: "Join UWA India as we bring world-class Australian education to Mumbai and Chennai. Explore open academic and professional roles." },
-      { property: "og:title", content: "Careers at UWA India" },
-      { property: "og:description", content: "Help build one of Australia's most respected universities in one of the world's fastest-growing education markets." },
-    ],
-  }),
-  component: Careers,
-});
-
 function Careers() {
+  usePageMeta({ title: 'Work with UWA India — Careers at a Top 100 university', description: 'Join UWA India as we bring world-class Australian education to Mumbai and Chennai. Explore open academic and professional roles.' });
   return (
     <>
       <section className="relative bg-primary pt-40 pb-16 text-primary-foreground lg:pt-52 lg:pb-24">
@@ -98,3 +88,5 @@ function Careers() {
     </>
   );
 }
+
+export default Careers;

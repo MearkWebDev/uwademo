@@ -1,21 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import mumbaiImg from "@/assets/mumbai-campus.jpg";
 import chennaiImg from "@/assets/chennai-campus.jpg";
 
-export const Route = createFileRoute("/campuses/")({
-  head: () => ({
-    meta: [
-      { title: "Campuses — UWA India in Mumbai and Chennai" },
-      { name: "description", content: "UWA India campuses in Mumbai and Chennai — where global education meets India's most dynamic cities." },
-      { property: "og:title", content: "UWA India Campuses" },
-      { property: "og:description", content: "Mumbai · Chennai · September 2026." },
-    ],
-  }),
-  component: Campuses,
-});
-
 function Campuses() {
+  usePageMeta({ title: 'Campuses — UWA India in Mumbai and Chennai', description: "UWA India campuses in Mumbai and Chennai — where global education meets India's most dynamic cities." });
   return (
     <>
       <section className="relative bg-primary pt-40 pb-16 text-primary-foreground lg:pt-52 lg:pb-24">
@@ -37,8 +27,7 @@ function Campuses() {
           ].map((c) => (
             <Link
               key={c.id}
-              to="/campuses/$campus"
-              params={{ campus: c.id }}
+              to={`/campuses/${c.id}`}
               className="group relative h-[560px] overflow-hidden rounded-4xl"
             >
               <img src={c.img} alt={c.city} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
@@ -59,3 +48,5 @@ function Campuses() {
     </>
   );
 }
+
+export default Campuses;

@@ -1,7 +1,8 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { ArrowUpRight, Calendar, MapPin, Plane, Train } from "lucide-react";
 import mumbaiImg from "@/assets/mumbai-campus.jpg";
 import chennaiImg from "@/assets/chennai-campus.jpg";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 interface CampusData {
   slug: "mumbai" | "chennai";
@@ -38,33 +39,14 @@ const campuses: Record<string, CampusData> = {
   },
 };
 
-export const Route = createFileRoute("/campuses/$campus")({
-  loader: ({ params }): CampusData => {
-    const c = campuses[params.campus];
-    if (!c) throw notFound();
-    return c;
-  },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.headline ?? "UWA India Campus"} — UWA India` },
-      { name: "description", content: loaderData?.intro?.slice(0, 180) ?? "" },
-      { property: "og:title", content: loaderData?.headline ?? "" },
-      { property: "og:description", content: loaderData?.tag ?? "" },
-    ],
-  }),
-  component: CampusDetail,
-  notFoundComponent: () => (
-    <div className="grid min-h-screen place-items-center pt-24 text-center">
-      <div>
-        <h1 className="font-display text-5xl">Campus not found</h1>
-        <Link to="/campuses" className="mt-6 inline-flex rounded-full bg-primary px-5 py-3 text-sm text-primary-foreground">Back</Link>
-      </div>
-    </div>
-  ),
-});
-
 function CampusDetail() {
-  const c = Route.useLoaderData() as CampusData;
+  const { campus } = useParams<{ campus: string }>();
+  const c = campus ? campuses[campus] : undefined;
+  usePageMeta({
+    title: c ? `${c.headline} — UWA India` : "Campus — UWA India",
+    description: c?.tag,
+  });
+  if (!c) return <NotFoundCampus />;
   return (
     <>
       <section className="relative isolate overflow-hidden bg-primary pt-40 pb-16 text-primary-foreground lg:pt-52 lg:pb-24">
@@ -154,5 +136,18 @@ function CampusDetail() {
         </div>
       </section>
     </>
+  );
+}
+
+export default CampusDetail;
+
+function NotFoundCampus() {
+  return (
+    <div className="grid min-h-screen place-items-center pt-24 text-center">
+      <div>
+        <h1 className="font-display text-5xl">Campus not found</h1>
+        <Link to="/campuses" className="mt-6 inline-flex rounded-full bg-primary px-5 py-3 text-sm text-primary-foreground">Back</Link>
+      </div>
+    </div>
   );
 }

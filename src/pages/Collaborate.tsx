@@ -1,17 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-
-export const Route = createFileRoute("/collaborate")({
-  head: () => ({
-    meta: [
-      { title: "Collaborate with UWA India — Partnerships that shape the Indo-Pacific" },
-      { name: "description", content: "Partner with UWA India across research, industry, government, and education. Build the workforce, innovation, and impact of the future." },
-      { property: "og:title", content: "Collaborate with UWA India" },
-      { property: "og:description", content: "Building partnerships that shape the future of the Indo-Pacific." },
-    ],
-  }),
-  component: Collaborate,
-});
 
 const propositions = [
   { audience: "For Industry", h: "Accelerate innovation. Build tomorrow's workforce.", offer: ["Joint R&D initiatives", "Industry-sponsored research and PhD programmes", "Workforce upskilling and executive education", "Internships and graduate talent pipelines", "Innovation challenges and co-creation partnerships"], p: "Access cutting-edge expertise and globally prepared graduates ready to contribute across resources, energy transition, technology, health, and advanced industries." },
@@ -27,6 +16,7 @@ const focusAreas = [
 ];
 
 function Collaborate() {
+  usePageMeta({ title: 'Collaborate with UWA India — Partnerships that shape the Indo-Pacific', description: 'Partner with UWA India across research, industry, government, and education. Build the workforce, innovation, and impact of the future.' });
   return (
     <>
       <section className="relative bg-primary pt-40 pb-24 text-primary-foreground lg:pt-52 lg:pb-32">
@@ -102,3 +92,5 @@ function Collaborate() {
     </>
   );
 }
+
+export default Collaborate;

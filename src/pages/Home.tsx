@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowUpRight, ArrowRight, MapPin, GraduationCap, Globe2, Sparkles, PlayCircle, Quote, Calendar } from "lucide-react";
 import heroImg from "@/assets/hero-campus.jpg";
@@ -11,19 +12,8 @@ import { partners, events } from "@/data/site";
 import { useCountUp, useReveal } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "UWA India — Your launchpad for a global career" },
-      { name: "description", content: "Applications open for The University of Western Australia India's inaugural international campuses in Mumbai and Chennai. September 2026." },
-      { property: "og:title", content: "UWA India — Your launchpad for a global career" },
-      { property: "og:description", content: "A Group of Eight Australian university, delivered in India. Mumbai · Chennai · September 2026." },
-    ],
-  }),
-  component: Home,
-});
-
 function Home() {
+  usePageMeta({ title: 'UWA India — Your launchpad for a global career', description: "Applications open for The University of Western Australia India's inaugural international campuses in Mumbai and Chennai. September 2026." });
   return (
     <>
       <Hero />
@@ -212,8 +202,7 @@ function CampusShowcase() {
           ].map((c) => (
             <Link
               key={c.id}
-              to={"/campuses/$campus" as string}
-              params={{ campus: c.id }}
+              to={`/campuses/${c.id}`}
               onMouseEnter={() => setHover(c.id as "mumbai" | "chennai")}
               onMouseLeave={() => setHover(null)}
               className={cn(
@@ -281,8 +270,7 @@ function StudyExplorer() {
           {list.map((c) => (
             <Link
               key={c.slug}
-              to="/study/$courseId"
-              params={{ courseId: c.slug }}
+              to={`/study/${c.slug}`}
               className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-background p-7 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-elegant"
             >
               <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-foreground">
@@ -475,3 +463,5 @@ function RegisterCTA() {
     </section>
   );
 }
+
+export default Home;

@@ -1,20 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import swanImg from "@/assets/legacy-swan.jpg";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About UWA India — A century of academic excellence" },
-      { name: "description", content: "UWA India marks a bold new chapter in the story of The University of Western Australia — a century of academic excellence meeting one of the world's most dynamic innovation landscapes." },
-      { property: "og:title", content: "About UWA India" },
-      { property: "og:description", content: "A new learning ecosystem designed for the future of global education." },
-    ],
-  }),
-  component: About,
-});
-
 function About() {
+  usePageMeta({ title: 'About UWA India — A century of academic excellence', description: "UWA India marks a bold new chapter in the story of The University of Western Australia — a century of academic excellence meeting one of the world's most dynamic innovation landscapes." });
   return (
     <>
       <section className="relative isolate overflow-hidden bg-primary pt-40 pb-24 text-primary-foreground lg:pt-52 lg:pb-32">
@@ -106,3 +96,5 @@ function About() {
     </>
   );
 }
+
+export default About;

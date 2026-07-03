@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { Search, ArrowUpRight, MapPin, Clock, GraduationCap, TrendingUp, Sparkles, X } from "lucide-react";
 import { courses, type Campus, type CourseLevel } from "@/data/courses";
@@ -6,23 +7,12 @@ import { getMeta } from "@/data/course-meta";
 import { useCountUp } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/study/")({
-  head: () => ({
-    meta: [
-      { title: "Study at UWA India — Undergraduate & Postgraduate courses" },
-      { name: "description", content: "Explore UWA India's full course catalogue — undergraduate and postgraduate programmes across Mumbai and Chennai." },
-      { property: "og:title", content: "Study at UWA India" },
-      { property: "og:description", content: "Every UWA India course, one elegant explorer. Find your programme in seconds." },
-    ],
-  }),
-  component: StudyExplorer,
-});
-
 const categories = ["All", "Technology", "Business"] as const;
 const campusOptions: ("All" | Campus)[] = ["All", "Mumbai", "Chennai"];
 const levelOptions: ("All" | CourseLevel)[] = ["All", "Undergraduate", "Postgraduate"];
 
 function StudyExplorer() {
+  usePageMeta({ title: 'Study at UWA India — Undergraduate & Postgraduate courses', description: "Explore UWA India's full course catalogue — undergraduate and postgraduate programmes across Mumbai and Chennai." });
   const [level, setLevel] = useState<"All" | CourseLevel>("All");
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof categories)[number]>("All");
@@ -166,8 +156,7 @@ function CourseCard({ course, index }: { course: (typeof courses)[number]; index
   const tags = [course.category, course.level, ...course.campuses];
   return (
     <Link
-      to="/study/$courseId"
-      params={{ courseId: course.slug }}
+      to={`/study/${course.slug}`}
       className="group relative block overflow-hidden rounded-3xl border border-border bg-background transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-elegant"
       style={{ animationDelay: `${index * 60}ms` }}
     >
@@ -249,3 +238,5 @@ function CourseCard({ course, index }: { course: (typeof courses)[number]; index
     </Link>
   );
 }
+
+export default StudyExplorer;

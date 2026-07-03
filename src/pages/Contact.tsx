@@ -1,24 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowUpRight, Check, Mail, Phone, MapPin } from "lucide-react";
 import { courses } from "@/data/courses";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact & Register your interest — UWA India" },
-      { name: "description", content: "Register your interest for UWA India's inaugural September 2026 intake. Admissions, careers and partnership enquiries." },
-      { property: "og:title", content: "Contact UWA India" },
-      { property: "og:description", content: "A UWA India representative will connect with you to further your journey." },
-    ],
-  }),
-  component: Contact,
-});
-
 const tabs = ["Admissions", "Career", "Partnerships"] as const;
 
 function Contact() {
+  usePageMeta({ title: 'Contact & Register your interest — UWA India', description: "Register your interest for UWA India's inaugural September 2026 intake. Admissions, careers and partnership enquiries." });
   const [tab, setTab] = useState<(typeof tabs)[number]>("Admissions");
   const [submitted, setSubmitted] = useState(false);
 
@@ -176,3 +166,5 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
     </label>
   );
 }
+
+export default Contact;

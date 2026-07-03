@@ -1,20 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
 import { events } from "@/data/site";
 
-export const Route = createFileRoute("/news")({
-  head: () => ({
-    meta: [
-      { title: "What's new — UWA India events & announcements" },
-      { name: "description", content: "Stay up to date with the latest happenings at UWA India — masterclasses, webinars, and strategic announcements." },
-      { property: "og:title", content: "UWA India — What's new" },
-      { property: "og:description", content: "Events, masterclasses, and Indo-Pacific stories from UWA India." },
-    ],
-  }),
-  component: News,
-});
-
 function News() {
+  usePageMeta({ title: "What's new — UWA India events & announcements", description: 'Stay up to date with the latest happenings at UWA India — masterclasses, webinars, and strategic announcements.' });
   const [featured, ...rest] = events;
   return (
     <>
@@ -70,3 +60,5 @@ function News() {
     </>
   );
 }
+
+export default News;

@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   ArrowUpRight, CheckCircle2, MapPin, Clock, GraduationCap, Briefcase,
@@ -10,34 +10,7 @@ import { getCourse, structureNote, type Course } from "@/data/courses";
 import { getMeta } from "@/data/course-meta";
 import courseCsImg from "@/assets/course-cs.jpg";
 import { cn } from "@/lib/utils";
-
-export const Route = createFileRoute("/study/$courseId")({
-  loader: ({ params }): Course => {
-    const course = getCourse(params.courseId);
-    if (!course) throw notFound();
-    return course;
-  },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.name ?? "Course"} — UWA India` },
-      { name: "description", content: loaderData?.tagline ?? "UWA India course details." },
-      { property: "og:title", content: `${loaderData?.name ?? "Course"} — UWA India` },
-      { property: "og:description", content: loaderData?.overview?.slice(0, 180) ?? "" },
-    ],
-  }),
-  component: CourseDetail,
-  notFoundComponent: () => (
-    <div className="grid min-h-screen place-items-center px-4 pt-24 text-center">
-      <div>
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Not found</p>
-        <h1 className="mt-3 font-display text-5xl">That course isn't listed.</h1>
-        <Link to="/study" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-          Back to Course Explorer
-        </Link>
-      </div>
-    </div>
-  ),
-});
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const sections = [
   { id: "overview", label: "Overview", icon: BookOpen },
@@ -52,9 +25,13 @@ const sections = [
 ];
 
 function CourseDetail() {
-  const course = Route.useLoaderData() as Course;
-  const meta = getMeta(course.slug);
+  const { courseId } = useParams<{ courseId: string }>();
+  const course = courseId ? getCourse(courseId) : undefined;
   const [active, setActive] = useState("overview");
+  usePageMeta({
+    title: course ? `${course.name} — UWA India` : "Course — UWA India",
+    description: course?.tagline ?? "UWA India course details.",
+  });
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -71,6 +48,9 @@ function CourseDetail() {
     });
     return () => io.disconnect();
   }, []);
+
+  if (!course) return <NotFoundCourse />;
+  const meta = getMeta(course.slug);
 
   return (
     <>
@@ -567,6 +547,20 @@ function Faq({ q, a }: { q: string; a: string }) {
         <div className="min-h-0 overflow-hidden">
           <p className="px-6 pb-6 text-muted-foreground">{a}</p>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export default CourseDetail;
+
+function NotFoundCourse() {
+  return (
+    <div className="grid min-h-screen place-items-center px-4 pt-24 text-center">
+      <div>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Not found</p>
+        <h1 className="mt-3 font-display text-5xl">That course isn't listed.</h1>
+        <Link to="/study" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">Back to Course Explorer</Link>
       </div>
     </div>
   );

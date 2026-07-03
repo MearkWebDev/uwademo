@@ -6,7 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // Relative base so the built app works from any GitHub Pages subpath
 // (username.github.io/repo/) as well as from a custom domain root.
 export default defineConfig({
-  base: "./",
+  base: "/uwademo",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   server: {
     host: true,

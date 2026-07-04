@@ -451,7 +451,7 @@ export function SiteFooter() {
       <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <img src={logoAsset.url} alt="UWA India" className="h-14" />
+            <img src={logoWhite} alt="UWA India" className="h-14 w-auto" />
             <p className="mt-6 max-w-md text-sm leading-relaxed text-primary-foreground/70">
               The University of Western Australia is a top 100 global university and a founding member of Australia's Group of Eight. Based in Perth, UWA is internationally recognised for excellence in research, teaching, and industry engagement across the Indo-Pacific region.
             </p>

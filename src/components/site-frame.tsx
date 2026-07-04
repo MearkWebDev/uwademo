@@ -5,7 +5,7 @@ import {
   GraduationCap, Award, BookOpen, Compass, Building2, MapPin,
   Briefcase, Handshake, Users,
 } from "lucide-react";
-import logoAsset from "@/assets/uwa-india-logo.png.asset.json";
+import logoWhite from "@/assets/uwa-logo-white.png";
 import mumbaiImg from "@/assets/mumbai-campus.jpg";
 import chennaiImg from "@/assets/chennai-campus.jpg";
 import collabImg from "@/assets/students-collab.jpg";
@@ -41,25 +41,21 @@ export function SiteHeader() {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-  const solid = scrolled || mega !== null;
-
   return (
     <header
       onMouseLeave={() => setMega(null)}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        solid ? "bg-background/95 shadow-soft backdrop-blur border-b border-border/60" : "bg-transparent",
+        "sticky top-0 z-50 border-b border-white/10 shadow-soft transition-shadow",
+        scrolled && "shadow-elegant",
       )}
+      style={{ backgroundColor: "#003087" }}
     >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-3 lg:px-10">
+      <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between gap-6 px-5 lg:px-10">
         <Link to="/" onMouseEnter={() => setMega(null)} className="flex items-center gap-3">
           <img
-            src={logoAsset.url}
+            src={logoWhite}
             alt="UWA India"
-            className={cn(
-              "h-11 w-auto shrink-0 transition-[filter] duration-500",
-              solid ? "brightness-0" : "brightness-100",
-            )}
+            className="h-11 w-auto shrink-0"
           />
         </Link>
 
@@ -73,9 +69,8 @@ export function SiteHeader() {
               <Link
                 to={n.to}
                 className={cn(
-                  "group inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  solid ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10",
-                  mega && mega === n.mega && "bg-secondary text-foreground",
+                  "group inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/15",
+                  mega && mega === n.mega && "bg-white/15",
                 )}
               >
                 {n.label}
@@ -95,45 +90,34 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSearchOpen((s) => !s)}
-            className={cn(
-              "hidden size-10 place-items-center rounded-full transition-colors md:grid",
-              solid ? "bg-secondary text-foreground hover:bg-accent" : "bg-white/10 text-white hover:bg-white/20",
-            )}
+            className="hidden size-10 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:grid"
             aria-label="Search"
           >
             <Search className="size-4" />
           </button>
           <Link
             to="/contact"
-            className={cn(
-              "hidden items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium transition md:inline-flex",
-              solid ? "border border-border text-foreground hover:bg-secondary" : "border border-white/25 text-white hover:bg-white/10",
-            )}
+            className="hidden items-center gap-1.5 rounded-full border border-white/25 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 md:inline-flex"
           >
             <User className="size-4" /> Login
           </Link>
           <Link
             to="/contact"
-            className={cn(
-              "hidden items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold shadow-gold/30 transition-transform hover:-translate-y-0.5 md:inline-flex",
-              "bg-gold text-gold-foreground hover:bg-gold/90",
-            )}
+            className="hidden items-center gap-1.5 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-gold-foreground shadow-gold/30 transition-transform hover:-translate-y-0.5 hover:bg-gold/90 md:inline-flex"
           >
             Apply Now
             <ArrowUpRight className="size-4" />
           </Link>
           <button
             onClick={() => setOpen(true)}
-            className={cn(
-              "grid size-11 place-items-center rounded-full transition-colors lg:hidden",
-              solid ? "bg-secondary text-foreground" : "bg-white/10 text-white",
-            )}
+            className="grid size-11 place-items-center rounded-full bg-white/10 text-white lg:hidden"
             aria-label="Open menu"
           >
             <Menu className="size-5" />
           </button>
         </div>
       </div>
+
 
       {/* Search bar */}
       <div
@@ -405,7 +389,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
         )}
       >
         <div className="flex items-center justify-between">
-          <img src={logoAsset.url} alt="UWA India" className="h-10 brightness-0" />
+          <img src={logoWhite} alt="UWA India" className="h-10 w-auto" style={{ filter: "invert(1) brightness(0.2)" }} />
           <button onClick={onClose} className="grid size-11 place-items-center rounded-full bg-secondary" aria-label="Close menu">
             <X className="size-5" />
           </button>

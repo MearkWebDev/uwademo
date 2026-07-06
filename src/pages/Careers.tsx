@@ -7,14 +7,15 @@ function Careers() {
   usePageMeta({ title: 'Work with UWA India — Careers at a Top 100 university', description: 'Join UWA India as we bring world-class Australian education to Mumbai and Chennai. Explore open academic and professional roles.' });
   return (
     <>
-      <section className="relative bg-primary pt-40 pb-16 text-primary-foreground lg:pt-52 lg:pb-24">
-        <div className="bg-grid-ink pointer-events-none absolute inset-0 opacity-[0.06]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[480px] rounded-full bg-gold/10 blur-3xl" />
         <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
+          <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span> Careers
           </nav>
           <p className="mt-8 text-xs uppercase tracking-[0.22em] text-gold">Work with UWA</p>
-          <h1 className="mt-3 max-w-4xl font-display text-6xl leading-[1.02] md:text-8xl">
+          <h1 className="mt-3 max-w-4xl font-display text-6xl leading-[1.02] text-balance text-primary md:text-7xl">
             Join a World Top 100 University <em className="text-gold not-italic">bringing global education to India.</em>
           </h1>
         </div>

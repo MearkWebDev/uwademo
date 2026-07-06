@@ -96,13 +96,13 @@ export function SiteHeader() {
             <Search className="size-4" />
           </button>
           <Link
-            to="/contact"
+            to="/enquire"
             className="hidden items-center gap-1.5 rounded-full border border-white/25 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 md:inline-flex"
           >
             <User className="size-4" /> Login
           </Link>
           <Link
-            to="/contact"
+            to="/enquire"
             className="hidden items-center gap-1.5 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-gold-foreground shadow-gold/30 transition-transform hover:-translate-y-0.5 hover:bg-gold/90 md:inline-flex"
           >
             Apply Now
@@ -323,7 +323,7 @@ function PromoCard({
   image, eyebrow, title, desc, cta,
 }: { image: string; eyebrow: string; title: string; desc: string; cta: string }) {
   return (
-    <Link to="/contact" className="group relative block overflow-hidden rounded-3xl bg-primary text-primary-foreground">
+    <Link to="/enquire" className="group relative block overflow-hidden rounded-3xl bg-primary text-primary-foreground">
       <img src={image} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-35 transition-transform duration-700 group-hover:scale-105" />
       <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/80 to-primary/50" />
       <div className="relative flex h-full min-h-[280px] flex-col justify-between p-7">
@@ -432,10 +432,10 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
           ))}
         </nav>
         <div className="mt-6 grid grid-cols-2 gap-2">
-          <Link to="/contact" onClick={onClose} className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3.5 text-sm font-semibold">
+          <Link to="/enquire" onClick={onClose} className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3.5 text-sm font-semibold">
             <User className="size-4" /> Login
           </Link>
-          <Link to="/contact" onClick={onClose} className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-4 py-3.5 text-sm font-semibold text-gold-foreground">
+          <Link to="/enquire" onClick={onClose} className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-4 py-3.5 text-sm font-semibold text-gold-foreground">
             Apply Now <ArrowUpRight className="size-4" />
           </Link>
         </div>

@@ -19,15 +19,17 @@ function Collaborate() {
   usePageMeta({ title: 'Collaborate with UWA India — Partnerships that shape the Indo-Pacific', description: 'Partner with UWA India across research, industry, government, and education. Build the workforce, innovation, and impact of the future.' });
   return (
     <>
-      <section className="relative bg-primary pt-40 pb-24 text-primary-foreground lg:pt-52 lg:pb-32">
-        <div className="mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[480px] rounded-full bg-gold/10 blur-3xl" />
+        <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
+          <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span> Collaborate
           </nav>
-          <h1 className="mt-8 max-w-4xl font-display text-6xl leading-[1.02] md:text-8xl">
+          <h1 className="mt-8 max-w-4xl font-display text-6xl leading-[1.02] text-primary md:text-7xl">
             Partnerships that shape the <em className="text-gold not-italic">Indo-Pacific.</em>
           </h1>
-          <p className="mt-8 max-w-3xl text-lg text-primary-foreground/75">
+          <p className="mt-8 max-w-3xl text-lg text-muted-foreground">
             UWA India's campuses in Mumbai and Chennai place students and partners at the heart of two of the Indo-Pacific's most dynamic economies. Through UWA India, we link global expertise with India's rapidly evolving innovation, government and education ecosystems.
           </p>
         </div>

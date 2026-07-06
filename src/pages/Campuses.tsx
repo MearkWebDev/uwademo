@@ -8,14 +8,19 @@ function Campuses() {
   usePageMeta({ title: 'Campuses — UWA India in Mumbai and Chennai', description: "UWA India campuses in Mumbai and Chennai — where global education meets India's most dynamic cities." });
   return (
     <>
-      <section className="relative bg-primary pt-40 pb-16 text-primary-foreground lg:pt-52 lg:pb-24">
-        <div className="mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[480px] rounded-full bg-gold/10 blur-3xl" />
+        <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
+          <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span> Campuses
           </nav>
-          <h1 className="mt-8 max-w-4xl font-display text-6xl leading-[1.02] text-balance md:text-8xl">
+          <h1 className="mt-8 max-w-4xl font-display text-6xl leading-[1.02] text-balance text-primary md:text-7xl">
             Two campuses. <em className="text-gold not-italic">Two cities.</em> One UWA.
           </h1>
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            Choose your campus in the heart of India's business and innovation hubs.
+          </p>
         </div>
       </section>
 

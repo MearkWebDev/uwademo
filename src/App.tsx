@@ -12,6 +12,7 @@ const Careers = lazy(() => import("@/pages/Careers"));
 const Collaborate = lazy(() => import("@/pages/Collaborate"));
 const News = lazy(() => import("@/pages/News"));
 const Contact = lazy(() => import("@/pages/Contact"));
+const Enquire = lazy(() => import("@/pages/Enquire"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 function ScrollToTop() {
@@ -44,6 +45,8 @@ export default function App() {
             <Route path="/collaborate" element={<Collaborate />} />
             <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/enquire" element={<Enquire />} />
+            <Route path="/apply" element={<Enquire />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

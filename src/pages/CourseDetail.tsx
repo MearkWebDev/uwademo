@@ -55,57 +55,59 @@ function CourseDetail() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-primary pt-40 pb-24 text-primary-foreground lg:pt-52 lg:pb-32">
-        <img src={courseCsImg} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-25" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/90 to-primary/60" />
-        <div className="bg-grid-ink pointer-events-none absolute inset-0 opacity-[0.06]" />
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[520px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[520px] rounded-full bg-gold/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
+          <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <Link to="/" className="story-link">Home</Link>
             <span className="mx-2">/</span>
             <Link to="/study" className="story-link">Courses</Link>
             <span className="mx-2">/</span>
-            <span className="text-primary-foreground/90">{course.name}</span>
+            <span className="text-primary">{course.name}</span>
           </nav>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-end">
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary shadow-soft">
                   {course.level}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/80 backdrop-blur">
-                  <Award className="size-3" /> {course.category}
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground shadow-soft">
+                  <Award className="size-3 text-gold" /> {course.category}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/80 backdrop-blur">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground shadow-soft">
                   <TrendingUp className="size-3 text-gold" /> {meta.graduateOutcome}% outcomes
                 </span>
               </div>
-              <h1 className="mt-6 font-display text-5xl leading-[1.02] text-balance md:text-7xl lg:text-8xl">
+              <h1 className="mt-6 font-display text-5xl leading-[1.02] text-balance text-primary md:text-6xl lg:text-7xl">
                 {course.degree}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-primary-foreground/75">{course.tagline}</p>
+              <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{course.tagline}</p>
 
               <div className="mt-8 flex flex-wrap items-center gap-2">
-                <Link to="/enquire" className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground transition-transform hover:-translate-y-0.5">
+                <Link to="/enquire" className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:-translate-y-0.5">
                   Apply Now <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
-                <a href="#apply" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur hover:bg-white/10">
+                <a href="#apply" className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-7 py-4 text-sm font-semibold text-primary shadow-soft hover:bg-cream">
                   <Download className="size-4" /> Download Brochure
                 </a>
               </div>
+              <p className="mt-6 max-w-2xl rounded-2xl border border-gold/40 bg-gold/10 px-4 py-3 text-xs leading-relaxed text-primary">
+                UWA is working closely with the University Grants Commission (UGC) to secure the necessary approvals for its proposed campuses and course offerings. Courses will commence following receipt of required approvals.
+              </p>
             </div>
 
             {/* Floating quick-facts card */}
             <div className="relative">
-              <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-xl shadow-elegant">
-                <div className="absolute -right-10 -top-10 size-40 rounded-full bg-gold/25 blur-2xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-6 shadow-elegant">
+                <div className="absolute -right-10 -top-10 size-40 rounded-full bg-gold/15 blur-2xl" />
                 <div className="relative">
                   <div className="flex items-center justify-between">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/60">Quick facts</p>
-                    <div className="inline-flex items-center gap-1 text-xs text-gold">
-                      <Star className="size-3.5 fill-gold" /> {meta.rating}/5
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Quick facts</p>
+                    <div className="inline-flex items-center gap-1 text-xs text-primary">
+                      <Star className="size-3.5 fill-gold text-gold" /> {meta.rating}/5
                     </div>
                   </div>
                   <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
@@ -114,10 +116,10 @@ function CourseDetail() {
                     <QuickFact icon={GraduationCap} label="Code" value={course.code} />
                     <QuickFact icon={Sparkles} label="Intake" value={meta.nextIntake} />
                   </div>
-                  <div className="mt-5 rounded-2xl bg-primary/60 p-4">
-                    <p className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/60">Avg. graduate salary</p>
+                  <div className="mt-5 rounded-2xl bg-primary p-4 text-primary-foreground">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/70">Avg. graduate salary</p>
                     <p className="mt-1 font-display text-3xl text-gold">₹{meta.salaryMin}–{meta.salaryMax}L</p>
-                    <p className="text-[11px] text-primary-foreground/60">per annum, entry-level</p>
+                    <p className="text-[11px] text-primary-foreground/70">per annum, entry-level</p>
                   </div>
                 </div>
               </div>

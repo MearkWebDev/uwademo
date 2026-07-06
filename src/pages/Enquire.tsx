@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { type ReactElement, useEffect, useRef, useState } from "react";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 type PersonaKey = "applicant" | "agent" | "staff" | "current";
@@ -65,7 +65,7 @@ function Enquire() {
   const topRef = useRef<HTMLElement>(null);
   useEffect(() => { topRef.current?.scrollIntoView({ behavior: "auto", block: "start" }); }, []);
 
-  const personas: { key: PersonaKey; label: string; desc: string; icon: JSX.Element }[] = [
+  const personas: { key: PersonaKey; label: string; desc: string; icon: ReactElement }[] = [
     { key: "applicant", label: "Prospective Student / Parent / Guardian", desc: "Register interest in a programme or course",
       icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg> },
     { key: "agent", label: "Education Agent / Others", desc: "Partner with us",

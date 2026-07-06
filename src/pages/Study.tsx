@@ -34,24 +34,27 @@ function StudyExplorer() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-primary pt-40 pb-20 text-primary-foreground lg:pt-52 lg:pb-28">
-        <div className="bg-grid-ink pointer-events-none absolute inset-0 opacity-[0.08]" />
-        <div className="absolute -right-40 -top-40 size-[520px] rounded-full bg-gold/15 blur-3xl" />
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[480px] rounded-full bg-gold/10 blur-3xl" />
         <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
+          <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span>{" "}
-            <span className="text-primary-foreground/90">Courses</span>
+            <span className="text-primary">Courses</span>
           </nav>
           <div className="mt-8 flex flex-wrap items-end justify-between gap-8">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
-                <Sparkles className="size-3" /> September 2026 intake
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-soft">
+                <Sparkles className="size-3 text-gold" /> September 2026 intake
               </span>
-              <h1 className="mt-6 font-display text-6xl leading-[1.02] text-balance md:text-8xl">
+              <h1 className="mt-6 font-display text-6xl leading-[1.02] text-balance text-primary md:text-7xl">
                 Find your <em className="text-gold not-italic">flagship</em> course.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-primary-foreground/75">
+              <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
                 Every UWA India programme in one place — filter by level, campus and discipline. Preview salary outcomes and jump straight into detail in a single click.
+              </p>
+              <p className="mt-6 max-w-2xl rounded-2xl border border-gold/40 bg-gold/10 px-4 py-3 text-xs leading-relaxed text-primary">
+                UWA is working closely with the University Grants Commission (UGC) to secure the necessary approvals for its proposed campuses and course offerings. Courses will commence following receipt of required approvals.
               </p>
             </div>
           </div>

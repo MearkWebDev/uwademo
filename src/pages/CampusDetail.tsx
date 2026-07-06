@@ -49,17 +49,22 @@ function CampusDetail() {
   if (!c) return <NotFoundCampus />;
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-primary pt-40 pb-16 text-primary-foreground lg:pt-52 lg:pb-24">
-        <img src={c.img} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/30" />
-        <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
-            <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span>
-            <Link to="/campuses" className="story-link">Campuses</Link> <span className="mx-2">/</span>
-            {c.city}
-          </nav>
-          <p className="mt-8 text-xs uppercase tracking-[0.22em] text-gold">{c.tag}</p>
-          <h1 className="mt-3 max-w-4xl font-display text-6xl leading-[1.02] md:text-8xl">{c.headline}</h1>
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[480px] rounded-full bg-gold/10 blur-3xl" />
+        <div className="relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 lg:grid-cols-[1.05fr_1fr] lg:px-10">
+          <div>
+            <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span>
+              <Link to="/campuses" className="story-link">Campuses</Link> <span className="mx-2">/</span>
+              {c.city}
+            </nav>
+            <p className="mt-8 text-xs uppercase tracking-[0.22em] text-gold">{c.tag}</p>
+            <h1 className="mt-3 max-w-3xl font-display text-6xl leading-[1.02] text-primary md:text-7xl">{c.headline}</h1>
+          </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-border bg-white shadow-elegant">
+            <img src={c.img} alt={c.city} className="h-full w-full object-cover" />
+          </div>
         </div>
       </section>
 

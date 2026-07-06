@@ -509,10 +509,10 @@ function QuickFact({
 }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string }) {
   return (
     <div>
-      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-primary-foreground/60">
+      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
         <Icon className="size-3 text-gold" /> {label}
       </div>
-      <p className="mt-1 text-sm font-medium text-primary-foreground">{value}</p>
+      <p className="mt-1 text-sm font-medium text-foreground">{value}</p>
     </div>
   );
 }

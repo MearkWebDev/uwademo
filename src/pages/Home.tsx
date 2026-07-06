@@ -35,43 +35,47 @@ function Home() {
 /* ---------- HERO ---------- */
 function Hero() {
   return (
-    <section className="relative isolate min-h-[100dvh] overflow-hidden bg-primary text-primary-foreground">
-      <img
-        src={heroImg}
-        alt="UWA campus quadrangle at golden hour"
-        width={1920}
-        height={1280}
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-70"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/40 to-primary" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-transparent to-transparent" />
+    <section className="relative isolate min-h-[100dvh] overflow-hidden bg-gradient-to-b from-white via-cream to-white text-foreground">
+      {/* soft accents */}
+      <div className="pointer-events-none absolute -top-40 -right-40 size-[560px] rounded-full bg-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -left-40 size-[560px] rounded-full bg-gold/10 blur-3xl" />
 
-      <div className="relative mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col justify-end px-5 pb-16 pt-32 lg:px-10 lg:pb-24 lg:pt-40">
-        <div className="max-w-4xl fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-white/85 backdrop-blur">
+      <div className="relative mx-auto grid min-h-[100dvh] max-w-[1440px] items-center gap-14 px-5 pt-32 pb-16 lg:grid-cols-[1.15fr_1fr] lg:px-10 lg:pt-40 lg:pb-24">
+        <div className="fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-primary shadow-soft">
             <span className="size-1.5 rounded-full bg-gold" />
             Applications open · September 2026 intake
           </span>
-          <h1 className="mt-6 font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.95] text-balance">
+          <h1 className="mt-6 font-display text-[clamp(3rem,7vw,6.5rem)] leading-[0.98] text-balance text-primary">
             Your launchpad for a <em className="text-gold not-italic">global career.</em>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Applications are now open for The University of Western Australia India's international campuses in Mumbai and Chennai. A Top 100 Group of Eight university, delivered close to home.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/study" className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground transition-transform hover:-translate-y-0.5">
+            <Link to="/enquire" className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:-translate-y-0.5">
               Apply Now <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
-            <Link to="/study" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur hover:bg-white/10">
+            <Link to="/study" className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-7 py-4 text-sm font-semibold text-primary shadow-soft hover:bg-cream">
               <PlayCircle className="size-4" /> Explore courses
             </Link>
           </div>
+
+          <div className="mt-14 grid gap-6 border-t border-border pt-8 md:grid-cols-3">
+            <HeroKPI k="77" suffix="th" label="QS 2026 world ranking" />
+            <HeroKPI k="150,000" suffix="+" label="Global alumni network" />
+            <HeroKPI k="13" label="Subjects in the world's Top 50" />
+          </div>
         </div>
 
-        <div className="mt-16 grid gap-6 border-t border-white/15 pt-8 md:grid-cols-3">
-          <HeroKPI k="77" suffix="th" label="QS 2026 world ranking" />
-          <HeroKPI k="150,000" suffix="+" label="Global alumni network" />
-          <HeroKPI k="13" label="Subjects in the world's Top 50" />
+        <div className="relative">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[32px] border border-border bg-white shadow-elegant">
+            <img src={heroImg} alt="UWA campus quadrangle at golden hour" className="h-full w-full object-cover" />
+          </div>
+          <div className="absolute -bottom-6 -left-6 hidden max-w-xs rounded-3xl border border-border bg-white p-5 shadow-elegant md:block">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Two campuses opening</p>
+            <p className="mt-2 font-display text-2xl text-primary">Mumbai · Chennai</p>
+          </div>
         </div>
       </div>
     </section>
@@ -84,10 +88,10 @@ function HeroKPI({ k, suffix, label }: { k: string; suffix?: string; label: stri
   const display = isFinite(n) ? value.toLocaleString() : k;
   return (
     <div>
-      <div className="font-display text-5xl text-white md:text-6xl">
+      <div className="font-display text-4xl text-primary md:text-5xl">
         <span ref={ref}>{display}</span>{suffix && <span className="text-gold">{suffix}</span>}
       </div>
-      <p className="mt-2 text-sm uppercase tracking-[0.18em] text-white/60">{label}</p>
+      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
     </div>
   );
 }

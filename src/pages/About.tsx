@@ -7,19 +7,24 @@ function About() {
   usePageMeta({ title: 'About UWA India — A century of academic excellence', description: "UWA India marks a bold new chapter in the story of The University of Western Australia — a century of academic excellence meeting one of the world's most dynamic innovation landscapes." });
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-primary pt-40 pb-24 text-primary-foreground lg:pt-52 lg:pb-32">
-        <img src={swanImg} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-25" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary" />
-        <div className="relative mx-auto max-w-[1440px] px-5 lg:px-10">
-          <nav className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">
-            <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span> About
-          </nav>
-          <h1 className="mt-8 max-w-4xl font-display text-6xl leading-[1.02] text-balance md:text-8xl">
-            A century of excellence,<br /><em className="text-gold not-italic">a new chapter in India.</em>
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg text-primary-foreground/75">
-            UWA India marks a bold new chapter in the story of The University of Western Australia — where a century of academic excellence meets one of the world's most vibrant and dynamic innovation landscapes.
-          </p>
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-cream to-white pt-36 pb-16 text-foreground lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-32 -right-32 size-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-[480px] rounded-full bg-gold/10 blur-3xl" />
+        <div className="relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 lg:grid-cols-[1.1fr_1fr] lg:px-10">
+          <div>
+            <nav className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              <Link to="/" className="story-link">Home</Link> <span className="mx-2">/</span> About
+            </nav>
+            <h1 className="mt-8 max-w-3xl font-display text-6xl leading-[1.02] text-balance text-primary md:text-7xl">
+              A century of excellence,<br /><em className="text-gold not-italic">a new chapter in India.</em>
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
+              UWA India marks a bold new chapter in the story of The University of Western Australia — where a century of academic excellence meets one of the world's most vibrant and dynamic innovation landscapes.
+            </p>
+          </div>
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-border bg-white shadow-elegant">
+            <img src={swanImg} alt="A UWA legacy image" className="h-full w-full object-cover" />
+          </div>
         </div>
       </section>
 

@@ -104,8 +104,9 @@ function TrustStrip() {
     { k: "13 · Top 50", v: "13 subjects ranked in the world's Top 50 (QS 2025 and GRAS 2024)." },
   ];
   return (
-    <section className="relative -mt-24 px-5 pb-20 lg:px-10 lg:pb-28">
-      <div className="mx-auto grid max-w-[1280px] gap-4 rounded-4xl border border-border bg-background/90 p-6 shadow-elegant backdrop-blur md:grid-cols-3 md:p-10">
+    <section className="relative px-5 pb-20 lg:px-10 lg:pb-28">
+      <div className="mx-auto grid max-w-[1280px] gap-4 rounded-4xl border border-border bg-white p-6 shadow-elegant md:grid-cols-3 md:p-10">
+
         {items.map((i) => (
           <div key={i.k} className="border-b border-border pb-6 last:border-b-0 md:border-b-0 md:border-r md:pb-0 md:pr-8 md:last:border-r-0">
             <div className="font-display text-3xl text-primary">{i.k}</div>

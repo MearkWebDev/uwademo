@@ -88,7 +88,7 @@ function CourseDetail() {
               <p className="mt-6 max-w-2xl text-lg text-primary-foreground/75">{course.tagline}</p>
 
               <div className="mt-8 flex flex-wrap items-center gap-2">
-                <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground transition-transform hover:-translate-y-0.5">
+                <Link to="/enquire" className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground transition-transform hover:-translate-y-0.5">
                   Apply Now <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <a href="#apply" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur hover:bg-white/10">
@@ -151,7 +151,7 @@ function CourseDetail() {
               );
             })}
           </nav>
-          <Link to="/contact" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-semibold text-gold-foreground">
+          <Link to="/enquire" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-semibold text-gold-foreground">
             Apply Now <ArrowUpRight className="size-4" />
           </Link>
         </aside>
@@ -371,10 +371,10 @@ function CourseDetail() {
                 Applications for {course.name} at UWA India are open now. Reserve your seat for the September 2026 intake.
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
-                <Link to="/contact" className="rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground hover:-translate-y-0.5">
+                <Link to="/enquire" className="rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground hover:-translate-y-0.5">
                   Apply Now
                 </Link>
-                <Link to="/contact" className="rounded-full border border-white/25 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur hover:bg-white/10">
+                <Link to="/enquire" className="rounded-full border border-white/25 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur hover:bg-white/10">
                   Book Consultation
                 </Link>
                 <a href="#" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur hover:bg-white/10">
@@ -388,7 +388,7 @@ function CourseDetail() {
 
       {/* Sticky mobile apply */}
       <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
-        <Link to="/contact" className="flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground shadow-elegant">
+        <Link to="/enquire" className="flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground shadow-elegant">
           Apply for {course.name} <ArrowUpRight className="size-4" />
         </Link>
       </div>

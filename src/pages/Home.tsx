@@ -317,7 +317,7 @@ function Launchpad() {
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-primary-foreground/75">
             Start your studies in India and access a global network of 150,000+ graduates, strong industry connections, and future-ready learning environments.
           </p>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground hover:-translate-y-0.5">
+          <Link to="/enquire" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground hover:-translate-y-0.5">
             Register your interest <ArrowUpRight className="size-4" />
           </Link>
         </div>
@@ -456,7 +456,7 @@ function RegisterCTA() {
           A UWA India representative will connect with you to further your journey with us.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link to="/contact" className="rounded-full bg-gold px-8 py-4 text-sm font-semibold text-gold-foreground">Register your interest</Link>
+          <Link to="/enquire" className="rounded-full bg-gold px-8 py-4 text-sm font-semibold text-gold-foreground">Register your interest</Link>
           <Link to="/study" className="rounded-full border border-white/25 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur">Browse courses</Link>
         </div>
       </div>

@@ -108,7 +108,7 @@ function CampusDetail() {
               </div>
             ))}
           </div>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground">
+          <Link to="/enquire" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground">
             Register Now <ArrowUpRight className="size-4" />
           </Link>
         </div>
